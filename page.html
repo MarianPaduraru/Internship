@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <link rel="stylesheet" href="styles.css">
+        <script src="functionality.js"></script>
+        <header>Movie form</header>
+        <br>
+            <table style="width:100%" id="movieTable">
+                <tr>
+                    <th>Name</th>
+                    <th>Date Aired</th>
+                    <th>Genre</th>
+                    <th>Rating</th>
+                    <th>DVD</th>
+                </tr>
+            </table>
+            <br>
+            <form>
+                <div class="form-row">
+                    <label for="movieName">Movie:</label>
+                    <input class="align-right" type="text" id="movieName" placeholder="Enter title">
+                </div>
+                <div class="form-row">
+                    <label for="movieAiringDate">Airing date:</label>
+                    <input class="align-right" type="text" id="movieAiringDate" placeholder="DD.MM.YYYY">
+                </div>
+               <div class="form-row">
+                    <label for="movieGenre">Genre: </label>
+                    <input class="align-right" type="text" id="movieGenre" placeholder="Enter genre">
+                </div>
+                <div class="form-row"> 
+                    <label for="movieRating">Rating: </label>
+                    <input class="align-right" type="text" id="movieRating" placeholder="0.0 - 5.0">
+                </div>
+                 <div class="form-row">
+                  <label for="movieDVD">DVD: </label>
+                  <input type="checkbox" id="movieDVD" class="check-button">
+                 </div>
+                <button class="submit-style" onclick="myFunction(event)">Submit</button>
+            </form>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+table, th, td{
+    border: 2px solid black;
+  }
+  header{
+      font-size: 40px;
+      text-align: center;
+  }
+  input{
+      scroll-padding-left: 20px;
+  }
+  form {
+    max-width: 330px;
+    clear: both;
+  }
+  .form-row {
+      width:100%;
+      clear: both;
+
+  }
+  .align-right{
+    float: right;
+  }
+  .check-button {
+    width: 0.5 cm;
+    height: 0.5cm;
+  }
+  .submit-style {
+    margin: 10px;
+    float: right;
+    padding: 12px;
+  }
