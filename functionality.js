@@ -70,22 +70,42 @@ var tableWasRefreshed = false;
 var movieList = [];
 var localWasInsertedAlready = false;
 
+function deleteRowInTable(event,id)
+{
+    event.preventDefault();
+    table = document.getElementById('movieTable');
+    table.deleteRow(id);
+}
+
 function addRow(movieName, airingDate, genre, rating, dvd) {
     if (dvd == true)
         dvdValue = "Yes"
     else
         dvdValue = "No"
     var row = document.getElementById('movieTable').insertRow(-1)
+    idValue = document.getElementById('movieTable').rows.length-1;
+    row.id = idValue;
+
+    var deleteButton = document.createElement('input');
+    deleteButton.type = "button";
+    deleteButton.className = "deleteButton";
+    deleteButton.value = "Delete";
+    deleteButton.id = idValue;
+    deleteButton.onclick = "deleteRow(event,idValue)";
+    
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
     var cell5 = row.insertCell(4);
+    var cell6 = row.insertCell(5);
+
     cell1.innerHTML = movieName;
     cell2.innerHTML = airingDate;
     cell3.innerHTML = genre;
     cell4.innerHTML = rating;
     cell5.innerHTML = dvdValue;
+    cell6.appendChild(deleteButton);
 }
 
 function deleteTable() {
