@@ -7,11 +7,11 @@
         <br>
             <table style="width:100%" id="movieTable">
                 <tr>
-                    <th>Name</th>
-                    <th>Date Aired</th>
-                    <th>Genre</th>
-                    <th>Rating</th>
-                    <th>DVD</th>
+                    <th id= "name" onclick="sortRowsByName()">Name</th>
+                    <th id="date" onclick="sortRowsByDateAired()">Date Aired</th>
+                    <th id="genre" onclick="sortRowsByGenre()">Genre</th>
+                    <th id="rating" onclick="sortRowsByRating()">Rating</th>
+                    <th id="dvd" onclick="sortRowsByDVD()">DVD</th>
                 </tr>
             </table>
             <br>
@@ -37,6 +37,7 @@
                   <input type="checkbox" id="movieDVD" class="check-button">
                  </div>
                 <button class="submit-style" onclick="myFunction(event)">Submit</button>
+
             </form>
     </body>
 </html>
