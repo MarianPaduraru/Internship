@@ -1,0 +1,15 @@
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieDAL\bin\Debug\net5.0\MovieDAL.deps.json
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieDAL\bin\Debug\net5.0\MovieDAL.dll
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieDAL\bin\Debug\net5.0\ref\MovieDAL.dll
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieDAL\bin\Debug\net5.0\MovieDAL.pdb
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieDAL\bin\Debug\net5.0\MovieLibrary.dll
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieDAL\bin\Debug\net5.0\MovieLibrary.pdb
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieDAL\obj\Debug\net5.0\MovieDAL.csproj.AssemblyReference.cache
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieDAL\obj\Debug\net5.0\MovieDAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieDAL\obj\Debug\net5.0\MovieDAL.AssemblyInfoInputs.cache
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieDAL\obj\Debug\net5.0\MovieDAL.AssemblyInfo.cs
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieDAL\obj\Debug\net5.0\MovieDAL.csproj.CoreCompileInputs.cache
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieDAL\obj\Debug\net5.0\MovieDAL.csproj.CopyComplete
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieDAL\obj\Debug\net5.0\MovieDAL.dll
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieDAL\obj\Debug\net5.0\ref\MovieDAL.dll
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieDAL\obj\Debug\net5.0\MovieDAL.pdb

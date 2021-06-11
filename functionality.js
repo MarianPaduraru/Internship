@@ -3,131 +3,135 @@ function isNumber(number) {
 }
 
 function isDot(dot) {
-    return dot === '.'
+    return dot === '.';
 }
 
 function isOnlyAlpha(input) {
     for (i = 0; i < input.length; i++) {
         if (!((input[i] >= 'a' && input[i] <= 'z') || (input[i] >= 'A' && input[i] <= 'Z')))
-            return false
+            return false;
     }
     return true;
 }
 
 function isEmpty(field) {
-    return !field.length > 0 /* return true if the input is empty */
+    return !field.length > 0; // return true if the input is empty 
 }
 
 function verifyMovie(movie) {
     if (isEmpty(movie))
-        alert("Movie field is empty!")
-    return !(isEmpty(movie))
+        alert("Movie field is empty!");
+    return !(isEmpty(movie));
 
 }
 
 function verifyIfDate(date) {
     if (isEmpty(date))
-        return false
+        return false;
     if (isNumber(date[0]) && isNumber(date[1]) && isNumber(date[3]) && isNumber(date[4]) && isNumber(date[6]) && isNumber(date[7]) && isNumber(date[8]) && isNumber(date[9]) && isDot(date[2]) && isDot(date[5]))
         return true;
     else {
-        alert("Date is empty or isn not in this format: DD/MM/YYYY ")
+        alert("Date is empty or isn not in this format: DD/MM/YYYY ");
         return false;
     }
 }
 
 function verifyRating(rating) {
     if (isEmpty(rating)) {
-        alert("Rating field is empty!")
-        return false
+        alert("Rating field is empty!");
+        return false;
     }
     if (isNumber(rating[0]) && isDot(rating[1]) && isNumber(rating[2]) && rating.length == 3)
-        return true
+        return true;
     else {
-        alert("Rating is not in this format: x.y")
-        return false
+        alert("Rating is not in this format: x.y");
+        return false;
     }
 }
 
 function verifyGenre(genre) {
     if (isEmpty(genre)) {
-        alert("Genre field is empty!")
-        return false
+        alert("Genre field is empty!");
+        return false;
     }
     if (isOnlyAlpha(genre))
-        return true
+        return true;
     else {
-        alert("Genre field can only contain alphabetic caracters!")
+        alert("Genre field can only contain alphabetic caracters!");
         return false
     }
 }
 
 function verifyForm(movieName, airingDate, genre, rating) {
-    return verifyMovie(movieName) && verifyIfDate(airingDate) && verifyGenre(genre) && verifyRating(rating)
+    return verifyMovie(movieName) && verifyIfDate(airingDate) && verifyGenre(genre) && verifyRating(rating);
 }
 
 var tableWasRefreshed = false;
 var movieList = [];
 var localWasInsertedAlready = false;
-var nameClickedCounter = 0;
-var dateAiredClickedCounter = 0;
-var genreClickedCounter = 0;
-var ratingClickedCounter = 0;
-var dvdClickedCounter = 0;
 
 function deleteRowInTable(id) { // Removes from the list and from the page the row with the specified id
     movieList.splice(id, 1);
-    localStorage.setItem(0, JSON.stringify(movieList));
+    localStorage.setItem(0, JSON.stringify(movieList)); // Replaces the local storage with the modified list
     refreshTable();
 }
 
-function sortRowsByName() {
-    nameClickedCounter++;
-    header = document.getElementById('movieTable').rows[0];
-    if (nameClickedCounter % 2 == 1) {
-        header.childNodes[1].innerText = "Name" + ' \uD83E\uDC15'
-        movieList.sort(function (a, b) {
-            var nameA = a.prop1.toLowerCase();
-            var nameB = b.prop1.toLowerCase();
-            if (nameA < nameB) {
-                return -1;
-            }
-            if (nameA > nameB) {
-                return 1;
-            }
-            return 0;
-        });
+function checkIfRowsWereSorted(event){
+    var allTableHeaders = document.querySelectorAll("#movieTable th");
+    for(var i = 0; i< allTableHeaders.length; i++){ 
+        if ((i==0 || i == 2 || i == 4) && (allTableHeaders[i].classList.contains("ascending") || allTableHeaders[i].classList.contains("descending"))){
+            sortAlphabetically(event)
+            console.log("name,genre,dvd")
+        } 
+        if (i==1 && (allTableHeaders[i].classList.contains("ascending") || allTableHeaders[i].classList.contains("descending"))){
+            sortRowsByDateAired(event);
+            console.log("date")
+        } 
+        if (i==3 && (allTableHeaders[i].classList.contains("ascending") || allTableHeaders[i].classList.contains("descending"))){
+            sortRowsByRating(event);
+            console.log("rating")
+        } 
     }
-    else {
-        header.childNodes[1].innerText = "Name" + ' \uD83E\uDC17';
-        movieList.sort(function (a, b) {
-            var nameA = a.prop1.toLowerCase();
-            var nameB = b.prop1.toLowerCase();
-            if (nameA > nameB) {
-                return -1;
+}
+
+function compareAlphabetically(a,b){
+    var allTableHeaders = document.querySelectorAll("#movieTable th");
+    var nameA;
+    var nameB;      
+    for(var i = 0; i< allTableHeaders.length; i++){
+        if (i==0 && (allTableHeaders[i].classList.contains("ascending") || allTableHeaders[i].classList.contains("descending"))) {
+                 nameA = a.prop1.toLowerCase();
+                 nameB = b.prop1.toLowerCase();
             }
-            if (nameA < nameB) {
-                return 1;
+        if (i==2 && (allTableHeaders[i].classList.contains("ascending") || allTableHeaders[i].classList.contains("descending"))) {
+             nameA = a.prop3.toLowerCase();
+             nameB = b.prop3.toLowerCase();
             }
-            return 0;
-        });
+        
+        if (i==4 && (allTableHeaders[i].classList.contains("ascending") || allTableHeaders[i].classList.contains("descending"))) {
+            nameA = a.prop5
+            nameB = b.prop5
+       }
     }
-    refreshTable();
+        if (nameA < nameB) {
+            return -1;
+        }
+        if (nameA > nameB) {
+            return 1;
+        }
+        return 0;
 }
 
 function compareDates(date1, date2) {
-
     date1 = date1.prop2;
     date2 = date2.prop2;
-    if (dateAiredClickedCounter % 2 == 0) {
-        [date1, date2] = [date2, date1];
-    }
-    year1 = Number(date1.slice(6, 10)); //index 6->10
-    year2 = Number(date2.slice(6, 10));
+  
+    year1  = Number(date1.slice(6, 10)); //index 6->10
+    year2  = Number(date2.slice(6, 10));
     month1 = Number(date1.slice(3, 5)); //index 3->5
     month2 = Number(date2.slice(3, 5));
-    day1 = Number(date1.slice(0, 2)); //index 0->2
-    day2 = Number(date2.slice(0, 2));
+    day1   = Number(date1.slice(0, 2)); //index 0->2
+    day2   = Number(date2.slice(0, 2));
 
     if (year1 < year2) {
         return -1;
@@ -156,122 +160,91 @@ function compareDates(date1, date2) {
     }
 }
 
-function sortRowsByDateAired() {
-    dateAiredClickedCounter++;
-    header = document.getElementById('movieTable').rows[0];
-    if (dateAiredClickedCounter % 2 == 1) {
-        header.childNodes[3].innerText = "Date Aired" + ' \uD83E\uDC15'
-        movieList.sort(compareDates)
+function sortRowsByDateAired(event) {
+    var clickedHeaderElement = event.target;
+    updateArrows(clickedHeaderElement);
+    if(clickedHeaderElement.classList.contains("ascending")){
+        movieList.sort(compareDates);   
     }
-    else {
-        header.childNodes[3].innerText = "Date Aired" + ' \uD83E\uDC17'
-        movieList.sort(compareDates)
+    else{
+        movieList.sort(compareDates).reverse();
     }
     refreshTable();
 }
-function sortRowsByGenre() {
-    genreClickedCounter++;
-    header = document.getElementById('movieTable').rows[0];
-    if (genreClickedCounter % 2 == 1) {
-        header.childNodes[5].innerText = "Genre" + ' \uD83E\uDC15'
-        movieList.sort(function (a, b) {
-            var nameA = a.prop3.toLowerCase();
-            var nameB = b.prop3.toLowerCase();
-            if (nameA < nameB) {
-                return -1;
-            }
-            if (nameA > nameB) {
-                return 1;
-            }
-            return 0;
-        });
+
+function sortAlphabetically(event) {
+    var clickedHeaderElement = event.target;
+    updateArrows(clickedHeaderElement);
+    if(clickedHeaderElement.classList.contains("ascending")){
+        movieList.sort(compareAlphabetically);   
     }
-    else {
-        header.childNodes[5].innerText = "Genre" + ' \uD83E\uDC17';
-        movieList.sort(function (a, b) {
-            var nameA = a.prop3.toLowerCase();
-            var nameB = b.prop3.toLowerCase();
-            if (nameA > nameB) {
-                return -1;
-            }
-            if (nameA < nameB) {
-                return 1;
-            }
-            return 0;
-        });
+    else{
+        movieList.sort(compareAlphabetically).reverse();
     }
     refreshTable();
 }
 
 function compareStringNumbers(Number1, Number2) {
     Number1 = Number(Number1.prop4);
-    Number2 = Number(Number2.prop4);
-
-    if (ratingClickedCounter % 2 == 1)
-        [Number1, Number2] = [Number2, Number1];
-    if (Number1 > Number2)
+    Number2 = Number(Number2.prop4);    
+    if (Number1 > Number2) {
         return -1;
-    if (Number2 < Number1)
+    }
+    if (Number2 < Number1) {
         return 1;
+    }
     return 0;
 }
 
-function sortRowsByRating() {
-    ratingClickedCounter++;
-    header = document.getElementById('movieTable').rows[0];
-    if (ratingClickedCounter % 2 == 1) {
-        header.childNodes[7].innerText = "Rating" + ' \uD83E\uDC15'
-        movieList.sort(compareStringNumbers)
+function updateArrows(clickedHeader){
+    var allTableHeaders =  document.querySelectorAll("#movieTable th");
+    for(var i = 0; i < allTableHeaders.length; i ++){
+        if (allTableHeaders[i] !== clickedHeader) {
+            allTableHeaders[i].classList.remove("ascending");  
+            allTableHeaders[i].classList.remove("descending");  
+        }
     }
-    else {
-        header.childNodes[7].innerText = "Rating" + ' \uD83E\uDC17'
-        movieList.sort(compareStringNumbers)
+    if (clickedHeader.classList.length == 0 || clickedHeader.classList.contains("ascending")){
+        clickedHeader.classList.remove("ascending")
+        clickedHeader.classList.add("descending");
+    }
+    else{
+        clickedHeader.classList.remove("descending")
+        clickedHeader.classList.add("ascending");
+    }
+}
+
+function sortRowsByRating(event) {
+    var clickedHeaderElement = event.target;
+    updateArrows(clickedHeaderElement);
+    if(clickedHeaderElement.classList.contains("ascending")){
+        movieList.sort(compareStringNumbers);   
+    }
+    else{
+        movieList.sort(compareStringNumbers).reverse();
     }
     refreshTable();
 }
 
-function sortRowsByDVD() {
-    dvdClickedCounter++;
-    header = document.getElementById('movieTable').rows[0];
-    if (dvdClickedCounter % 2 == 1) {
-        header.childNodes[9].innerText = "DVD" + ' \uD83E\uDC15'
-        movieList.sort(function (a, b) {
-            var dvd1 = a.prop5;
-            var dvd2 = b.prop5;
-            if (dvd1 < dvd2) {
-                return -1;
-            }
-            if (dvd1 > dvd2) {
-                return 1;
-            }
-            return 0;
-        });
+function sortRowsByDVD(event) {
+    var clickedHeaderElement = event.target;
+    updateArrows(clickedHeaderElement);
+    if(clickedHeaderElement.classList.contains("ascending")){
+        movieList.sort(compareAlphabetically);   
     }
-    else {
-        header.childNodes[9].innerText = "DVD" + ' \uD83E\uDC17';
-        movieList.sort(function (a, b) {
-            var dvd1 = a.prop5;
-            var dvd2 = b.prop5;
-            if (dvd1 > dvd2) {
-                return -1;
-            }
-            if (dvd1 < dvd2) {
-                return 1;
-            }
-            return 0;
-        });
+    else{
+        movieList.sort(compareAlphabetically).reverse();
     }
     refreshTable();
 }
-
 
 function addRow(movieName, airingDate, genre, rating, dvd) {
     if (dvd == true)
-        dvdValue = "Yes"
+        dvdValue = "Yes";
     else
-        dvdValue = "No"
+        dvdValue = "No";
     var row = document.getElementById('movieTable').insertRow(-1);
-    idValue = document.getElementById('movieTable').rows.length - 2;
+    var idValue = document.getElementById('movieTable').rows.length -2;
 
     var deleteButton = document.createElement('input');
     deleteButton.onclick = (function (idValue) { return function () { deleteRowInTable(idValue); } })(idValue);
@@ -306,10 +279,10 @@ function insertLocalStorage() {
     refreshTable();
 }
 
-function refreshTable() {   // 1. se sterge tabelul. 2. Se recreaza tabelul, bazat pe datele din movieList (cu for)
+function refreshTable() {   // 1. se sterge tabelul. 2. Se recreaza tabelul, bazat pe datele din movieList
     deleteTable();
     for (var i = 0; i < movieList.length; i++)
-        addRow(movieList[i].prop1, movieList[i].prop2, movieList[i].prop3, movieList[i].prop4, movieList[i].prop5, movieList.id)
+        addRow(movieList[i].prop1, movieList[i].prop2, movieList[i].prop3, movieList[i].prop4, movieList[i].prop5, movieList.id);
 }
 
 function insertMovie(movieName, airingDate, genre, rating, dvd) {   /// insertMovie -> adaugare+refresh ->adauga in lista
@@ -319,8 +292,7 @@ function insertMovie(movieName, airingDate, genre, rating, dvd) {   /// insertMo
     movieList.push(newMovie);
     refreshTable();
     var movieListJSON = JSON.stringify(movieList);
-    var localStoredMovies = localStorage.getItem(0)
-    localStorage.setItem(0, movieListJSON);
+    localStorage.setItem(0, movieListJSON); /// Updates local storage
 }
 
 function myFunction(event) {
@@ -334,6 +306,7 @@ function myFunction(event) {
     if (verifyForm(movieName, airingDate, genre, rating)) {
         insertLocalStorage();
         insertMovie(movieName, airingDate, genre, rating, dvd);
+        checkIfRowsWereSorted(event);
     }
 }
 

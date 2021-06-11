@@ -1,0 +1,17 @@
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieBLL\bin\Debug\net5.0\MovieBLL.deps.json
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieBLL\bin\Debug\net5.0\MovieBLL.dll
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieBLL\bin\Debug\net5.0\ref\MovieBLL.dll
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieBLL\bin\Debug\net5.0\MovieBLL.pdb
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieBLL\bin\Debug\net5.0\MovieDAL.dll
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieBLL\bin\Debug\net5.0\MovieLibrary.dll
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieBLL\bin\Debug\net5.0\MovieDAL.pdb
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieBLL\bin\Debug\net5.0\MovieLibrary.pdb
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieBLL\obj\Debug\net5.0\MovieBLL.csproj.AssemblyReference.cache
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieBLL\obj\Debug\net5.0\MovieBLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieBLL\obj\Debug\net5.0\MovieBLL.AssemblyInfoInputs.cache
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieBLL\obj\Debug\net5.0\MovieBLL.AssemblyInfo.cs
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieBLL\obj\Debug\net5.0\MovieBLL.csproj.CoreCompileInputs.cache
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieBLL\obj\Debug\net5.0\MovieBLL.csproj.CopyComplete
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieBLL\obj\Debug\net5.0\MovieBLL.dll
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieBLL\obj\Debug\net5.0\ref\MovieBLL.dll
+C:\Users\MarianGabrielPadurar\Work\Github\Backend\MovieBLL\obj\Debug\net5.0\MovieBLL.pdb

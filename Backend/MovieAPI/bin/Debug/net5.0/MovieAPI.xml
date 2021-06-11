@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MovieAPI</name>
+    </assembly>
+    <members>
+        <member name="M:MovieAPI.Controllers.GenresController.GetAllGenres">
+            <summary>
+            Gets all the movies
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MovieAPI.Controllers.GenresController.SaveMovie(MovieLibrary.Models.MovieModel)">
+            <summary>
+            Saves a new movie
+            </summary>
+            <param name="movie">the movie that needs to be saved</param>
+            <returns></returns>
+        </member>
+        <member name="M:MovieAPI.Controllers.MoviesController.GetAllMovies">
+            <summary>
+            Gets all the movies
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MovieAPI.Controllers.MoviesController.SaveMovie(MovieLibrary.Models.MovieModel)">
+            <summary>
+            Saves a new movie
+            </summary>
+            <param name="movie">the movie that needs to be saved</param>
+            <returns></returns>
+        </member>
+        <member name="M:MovieAPI.Controllers.Movie_GenreController.GetAllMovie_Genre">
+            <summary>
+            Gets all the movies
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MovieAPI.Controllers.Movie_GenreController.SaveMovie(MovieLibrary.Models.MovieModel)">
+            <summary>
+            Saves a new movie
+            </summary>
+            <param name="movie">the movie that needs to be saved</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

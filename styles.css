@@ -1,10 +1,27 @@
-table, th, td{
-    border: 2px solid black;
-  }
-  header{
-      font-size: 40px;
-      text-align: center;
-  }
+table, td {  
+  border: 1px solid #ddd;
+  text-align: left;
+} 
+th{
+  border: 1px solid #ddd;
+  text-align:center;  
+}
+th:hover {
+  transition: 0.3s;
+  background-color: #516088;
+  color: rgb(255, 189, 164);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+tr:nth-child(even) { background-color: #f2f2f2; }
+tr:nth-child(even):hover { transition: 0.3s; background-color: #ffffff; }
+tr:nth-child(odd) { background-color: #ffffff; }
+tr:nth-child(odd):hover { transition: 0.3s; background-color: #f2f2f2; }
+th, td {
+  padding: 15px;
+}
   input{
       scroll-padding-left: 20px;
   }
@@ -15,7 +32,6 @@ table, th, td{
   .form-row {
       width:100%;
       clear: both;
-
   }
   .align-right{
     float: right;
@@ -23,9 +39,17 @@ table, th, td{
   .check-button {
     width: 0.5 cm;
     height: 0.5cm;
+    float: right;
+    margin: 1px;
   }
   .submit-style {
     margin: 10px;
     float: right;
     padding: 12px;
+  }
+  .descending::after {
+    content:'\1F813'
+  }
+  .ascending::after {
+    content:'\1F815'
   }
